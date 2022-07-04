@@ -5,11 +5,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TestModule } from './apis/test/test.module';
 import { RedisClientOptions } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';
-import { AppController } from './app.controller';
+import { HttpsModule } from './apis/https/https.module';
 
 @Module({
   imports: [
     TestModule,
+    HttpsModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: 'src/commons/graphql/schema.gql',
@@ -32,6 +33,5 @@ import { AppController } from './app.controller';
       isGlobal: true,
     }),
   ],
-  controllers: [AppController],
 })
 export class AppModuleLocal {}
