@@ -6,6 +6,7 @@ import { TestModule } from './apis/test/test.module';
 import { RedisClientOptions } from 'redis';
 import * as redisStore from 'cache-manager-redis-store';
 import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -33,5 +34,6 @@ import { AppController } from './app.controller';
     }),
   ],
   controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
